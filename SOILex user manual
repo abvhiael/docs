@@ -1,0 +1,94 @@
+SOIL-ex USER MANUAL
+To launch SOIL-ex, you will need a running instance of gsoil, which is up-to-date to ensure that you aren’t making trades on a fork. Use the following command line in a .bat file in Windows, or in an .app file on Mac OS, when launching gsoil:
+
+gsoil --rpc --rpccorsdomain http://45.63.4.165:7105 --unlock 0 console
+
+When SOIL-ex opens, it will check to ensure that it can communicate with gsoil, and will update the blockchain data as needed. Along the left-hand side of the user interface, the Network display will show the current Host, the number of Peers feeding the network information to your gsoil instance, the balance in SOIL of your current open account, the current Gas Price in Gwei (1 Gwei equals .0000000001 SOIL), the current and most recent block times, network lag, the timestamp of the last block and your current version of gsoil.
+
+The upper panel contains a drop-down menu which will take you to the different subcurrencies currently registered on the exchange, and also features the most recently traded price of that subcurrency and the balance of that subcurrency in your wallet. (NOTE: you will need to deposit these tokens on the exchange in order to list them for sale.) You can also switch between your SOILcoin wallets using the drop-down menu on the far right-hand side of this panel.
+
+The right-hand side panel also features the currently selected subcurrency balance in your wallet, as well as your balance in SOIL in the currently selected account, the currently unlisted balance of the selected subcurrency available, and the balance of the subcurrency currently listed on the market.
+
+The menu on the left-hand side of the opening page contains links to the Trades, Markets, BTC-Swap, Wallet, Tools and Help menus.
+
+There are two subcurrencies that have deployed alongside SOIL-ex, DEVs and SEEDs. We have built DEVs as a method to fund further development of the SOIL-ex platform, as well as provide an avenue to pay for the server costs associated with hosting the exchange. While SOIL-ex has been designed, purposefully, to act as a not-for-profit enterprise - there are no exchange fees connected with placing or fulfilling orders other than the gas costs necessary to run the computational side of the governing smart contract - this is not to say SOIL-ex would survive as a not-for-revenue project. 
+
+SEEDs are the token that will be representative for the SOILcoin “carbon footprint offset” project. As we mine the blockchain, we use electricity, adding to the overall planetary emissions. Using the Carbon Footprint Calculator at treecanada.ca, I have calculated the emissions generated based on an average network global hashrate of 300 MH/s. It would take 1 tree planted per day to offset those emissions, thus we will sell SEEDs, each token representing one planted tree, to work at offsetting this. Each SEEDLING will cost 125 SOIL. These funds will be kept in a 2of3 multisig wallet, administered by one member of the SOILcoin core development team, one member of the user community and one representive from TreeCanada. Once every 6 months, on March 21 and September 21, we will release the SOIL collected, convert it into BTC and then into fiat, and donate this money to TreeCanada (for the year 2016-17) towards a specific tree planting project. Subsequent years of this project will have a recalculation of the cost of the SEED token, and funds sent to other environmental organizations around the world for similar endeavours. Watch for announcements on the bitcointalk forum regarding this project.
+
+TRADES
+
+The TRADES interface runs much like their counterpart platforms on traditional, privately-owned cryptocurrency exchanges. Users are able to place buy and sell orders, and to fulfill orders. Each transaction will have an associated gas cost, which go to the blockchain miners. Users will enter in the supply of a subcurrency that they wish to sell, and the unit cost of each they wish to receive. Once they click on the SELL button, they will be presented with a confirmation window, which will also include the gas-cost estimate for placing the trade.
+
+EXAMPLE: A sell order of 100 DEVs at 1 SOIL apiece will have an estimate gas cost of 13.4059 finney (0.01340590 SOIL). This gas cost remains steady irregardless of the size of the order you are placing. Fulfilling a purchase of a subcurrency will have an estimated gas cost of 3.1328 finney (0.00313280 SOIL).
+
+We are looking into how to solve this gas cost imbalance between placing and filling orders, so these gas costs will level out as SOIL-ex evolves.
+
+MARKETS
+
+Although, at present, SOIL-ex serves as a subcurrency market, the ability to list not only SOIL-resident tokens but Cross-Chain altcoins, physical assets and fiat currencies is already set into the user interface. Upon launch, the Subcurrencies menu will list the DEV subcurrency - including its value change in percentage over the past 24 hours, 1 week and 1 month; the last traded price; the users total of exchange-held tokens and how many of those are available to trade (i.e. - not already set in a sell order).
+
+SEEDs will be listed as Assets, being as they represent, in essence, 1 seedling planted to offset 1 days worth of greenhouse gases produced to directly run the consensus engine of the SOILcoin blockchain. It is not a perfect formula, in fact at present valuation (April 13 2016) it would require 300 SOIL per token to cover the cost of a single tree, or inversely, it will require a valuation of 7500satoshi per SOIL to have the current 125 SOIL price reflective of the actual cost.
+
+As further developments are built into the SOIL-ex system, such as fiat gateways and pegged crosschain currencies, these will be listed in their appropriate locations.
+
+BTC
+
+One of the features built into the SOIL-ex platform is BTC-Swap, which leverages the BtcRelay smart contract suite. This allows for direct purchase of the native blockchain currency, SOIL, to be purchased directly on the exchange using BTC, without having to rely on a centralized, privately-held online exchange to do so. This platform also maintains an incentive program for users who relay the Bitcoin block headers and set their own fee schedule for doing so, as well as verifying BTC transactions in headers they have relayed, using the btcrelay-fetchd application, which will be discussed below.
+
+This isnt an instant process. Confirmation times will vary for transactions broadcast to the BTC blockchain. This does create a safe, decentralized method of BTC/SOIL trading outside conventional online exchanges, and opens the door to adding in other base pairs to SOIL in subsequent development.
+
+This page presents five menu options: BUY SOIL, SELL SOIL, RESERVE, CLAIM and HELP
+
+BUY SOIL will present Ticket IDs for contracts offering SOIL for sale for BitCoin. Clicking on the ticket will bring up an information pane with all the details for the ticket, as displayed on the page, and what the total, with BTC miners fee of 0.0003BTC is. 
+
+1. Choose the amount of SOIL for BTC offer you want to purchase, and select the Reserve button.
+2.Generate an intermediate BTC wallet in the RESERVE section by clicking on the Generate wallet button.
+3.Send the total BTC amount of the ticket, plus a 0.003BTC miner fee, to this intermediate address. Copy the intermediate wallet key and back it up. If you are sending funds, especially between networks, back up your transaction information at all times. (You can still recover the funds until the moment you broadcast the transaction)
+4.Wait for a minimum of 3 confirmations on the Bitcoin network. BTCs target block time is 10 minutes. This may take 30-40 minutes. 
+5.Click on Create Transaction to generate a signed transaction. DO NOT BROADCAST this transaction just yet, you only need to copy the transaction hash.
+6.This transaction hash will show up in the Proof of Work panel. Click Compute to get a valid nonce.
+This can take a few minutes.
+7.Once you have a valid nonce, click Verify to make sure your nonce is valid, then click Reserve.
+8.After the ticket is successfully reserved, broadcast the signed Bitcoin Transaction to the Bitcoin network by clicking on Broadcast transaction.
+9.Wait for 6 confirmations on the Bitcoin network..
+10.Go the the Claim section and lookup your ticket ID.
+11.Click Claim. You have now purchased SOIL for Bitcoin directly and peer-to-peer with the help of smart contracts. 
+
+SELL SOIL
+
+1.Enter in your Bitcoin wallet address, where you wish to receive payment for the SOIL you are selling.                                                             (e.g. 1H3xcVEZqPpAH4m8ULr6eh6aF3kpywc9Rw)
+2.Enter the amount of SOIL you have for sale. (e.g. 10000)
+3.Enter in your price, in BTC you want for you SOIL (e.g. 1)
+  This will produce the effective price per unit of SOIL, in BTC, that you are selling your SOILcoin for. (e.g. 0.00010000 BTC/SOIL)
+4.Click submit offer.
+
+RESERVE TRANSACTION
+Enter the ticket number for the SOIL purchase you wish to make. The ticket information will populate in the immediate right hand window. Follow the steps as above, to complete a purchase.
+
+A ticket is exclusively reserved for 2 hours, which will allow for BTC confirmation times; afterwards, anyone with SOIL can claim the ticket. If a further 2 hours elapses without the ticket being claimed, the ticket becomes open for someone else to Reserve.
+ 
+HOW IT WORKS
+
+It does so by allowing users to create a "ticket ID" which is tied to a BTC address for what, in the end is really just a simple trade request:  "X# SOIL for Y# BTC". A SOILcoin transaction is sent to the BTC blockchain, which returns the transaction hash. This transaction is then mined into the SOILcoin blockchain, returning the same transaction hash. 
+
+A user "reserves" a ticket ID, with the BTC transaction hash and computed nonce (generated by a Proof of Work action), in order to purchase SOIL offered up for BTC. This generates a transaction on the SOILcoin network, returning the ticket ID and SOILcoin transaction hash, and the transaction is completed when the transaction is mined and returns a reserve on the ticket.
+
+The Proof of Work nonce is computed for a ticket ID, using the BTC transaction hash. The transaction hash is entered in the appropriate pane in the Resere menu, click Compute, wait for the cryptographic nonce to be solved. Click Verify to ensure the nonce is valid , and then click Reserve. The transaction is mined and then able to be Claimed..
+
+The smart contract creates a signed BTC transaction, to get a transaction hash reserving a Ticket, which will be broadcast later when the transaction is propogated to the network, using a generated “intermediate BTC wallet” object, the BTC address recipient for the amount of $X BTC, an optional SOIL fee for a third-party claimer, and the SOILcoin address. This creates the transaction and returns an object including the fee for the actual BTC miner fee after the SOILcoin address and the optional SOIL fee have been encoded into the transaction, the hash of the BTC transaction and hex of the raw transaction.
+
+When this transaction is Broadcast, a previously signed raw transaction “txHex” is sent to the Bitcoin network. The success callback gets fired when the transaction is successfully broadcast and returns the BTC transaction hash
+
+BTC-RELAY
+
+BTC-Swap also leverages the BTC-Relay suite of smart contracts. BTC-Relay is a smart contract on the SOILcoin blockchain, used for Bitcoin SPV (Simplified Payment Verification). Its functionality is primarily in providing verification of a BTC transaction on the Bitcoin blockchain, authenticating that the transaction is on Bitcoin's main chain and has at least 6 confirmations. An example transaction can be interacted with via the SOILcoin github repository, which also shows the bitcoin-proof process to compute the merkle proof of the Bitcoin transaction. (the nonce)
+
+The other important function of BTC-Relay is to store BTC block headers, creating a “light-client” blockchain of BTC block headers, which are 80-byte chunks of data for each block that contain five things: the hash of the previous header, a timestamp, a mining difficulty vaue, a PoW nonce and the root hash for the Merkle tree containing the transactions in that block. With calls leveraging the btcrelay contracts, the latest stored BTC header can be inspected, and the BTC transaction verification can be relayed to a smart contract running on SOILcoin.
+
+BTC-Relay uses “Relayers”,  who can charge a fee, in SOIL, to submit the block headers to BTC-Relay, which is called upon in the suite of contracts for the processing BTC->SOIL transactions, while running SOIL-ex. It can be leveraged via API calls to other applications as well.
+
+The incentivization to the community to act as BTC block header relayers, allowing BTC-Relay to be autonomous while remaining up-to-date with the Bitcoin blockchain, is to allow relayers - using fetchd - to store these block headers with fees attached. They will receive the fee they have set for submitting the block headers when any transactions are verified within the block or if the header is retrieved or relayed to another SOILcoin contract. To avoid relayers setting exorbitant fees, relayers can set lower fees on blocks by changing the Fee recipient, storing the header themselves, and paying out a fee to the original relayer.
+
+FETCHD
+
+(this section will be updated soon)
