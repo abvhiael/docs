@@ -1,0 +1,79 @@
+How does the SOIL-ex exchange work?
+
+SOIL-ex  is built from a collection of smart contracts running on the SOILcoin  blockchain. In order to use SOIL-ex, users list buy or sell orders and then send funds to the master contract which then executes the trade. Once this contract receives both sides of the trade, it sends the funds to the respective parties involved. The smart contract running SOIL-ex holds the funds, instead of a third-party exchange administration itself,  so your assets remain secure from anyone else, including the developers of SOIL-ex.
+
+Will the interface feel the same as the centralized exchanges we are used to?
+
+The goal of SOIL-ex is to create a pure decentralized exchange that looks and responds much like a normal online cryptocurrency exchange on the surface. As the exchange scales up from its initial version, we will introduce other features found on traditional exchanges, including in depth market analysis tools, arbitrage, and commodity trading .
+
+Which coins will you support?
+
+SOIL-ex will support SOIL-coin sub-currencies only, at its initial launch. These can be simple vanity tokens, DAO shares, or other assets of value. Other “crosschain” cryptocurrencies (such as Bitcoin, Ethereum or EnergyCoin) will have to be pegged, side-chained or bridged with payment gateways for them to be brought onto the SOILcoin network. The capability, initially, to purchase SOILcoin directly with Bitcoin on the exchange will be implemented, thru the integrated BTC-Swap contract, with other currencies supported as we are able to set these up.
+
+What about fiat?
+
+The same principle applies to fiat currencies, once there are fiat gateways issuing a subcurrency on the SOILcoin network, those assets will be tradable on SOIL-ex. There is no limit to the type of assets, even gold, oil, wheat and other commodities will become available as the SOILcoin platform matures.
+
+Will you incorporate advanced financial tools that the EVM is designed to support?
+
+As SOIL-ex scales upward, further contract inter-operability will be set to allow margin trading, acturarial services, advanced market analysis tools,  derivative hedging and more. Plans to incorporate asset-backed tokens with precious metals are in place, and whould be ready for phase 2 deployment of the platform within a month of SOIL-ex’s initial launch. Plans to build an ersatz hard- and soft-commodities exchange are also underway.
+
+What will the trading fees be?
+
+There will be no fee charged by SOIL-ex other than the gas costs of executing the smart contracts for placing buy and sell orders or completing trades.
+
+How fast will your trade times be?
+
+As SOIL-ex operates on the SOILcoin blockchain, the trading speed will be the one at which new blocks are mined. The targeted block time for SOILcoin is one block every 13 seconds. There is no need for multiple blocks waiting times to confirm as is experienced with Bitcoin due to the nature of smart contracts. The trades and orderbook are updated as the transactions propagate through the network, while the next block gets mined. High-frequency trading (HFT) will be impossible on SOIL-ex, which improves price discovery and leads to a fair exchange for everyone involved.
+
+How will cryptocoins that are not on the SOILcoin blockchain (BTC, LTC, etc) work on SOIL-ex?
+
+The initial deployment of SOIL-ex will  be unable to store off chain cryptocoins in contracts.  We are exploring many options to achieve this, and  a combination of resources currently publicly available (such as multisig wallets and atomic swaps) will give the exchange the ability to make this happen efficiently.
+
+How secure will SOIL-ex be?
+
+The SOIL-ex codebase is open source, and can be personally audited prior to use by users. As SOIL-ex is designed as  a non-profit application, you are more than welcome to dive into the code and report any vulnerability you may find on our Github page (https://github.com/abvhiael/etherex).
+
+Is it possible to DDOS the exchange?
+
+Not really, the exchange itself runs on the SOILcoin network, as opposed to independent or private servers. SOILcoin enjoys the security of decentralization and as the network gains more miners it will become harder to attack that network. Although this website and  the SOIL-ex user interface that is used to access the exchange can be DDOS'd, that would  be a simple nuisance. The interface is simply a Node.js application that  can be installed and run locally by yourself.
+
+What happens if your website goes down from an attack?
+
+Not much. Because the core of the exchange will be running on the SOILcoin network, SOIL-ex will just keep running normally. SOIL-ex will, however, provide the primary user interface and API, and it would be unavailable (from the website only) in the case of an outage. Nevertheless, the trading engine will never depend on us. You will still be able to trade using any other local or hosted client.
+
+Will traders be anonymous on SOIL-ex?
+
+Yes and no. As all trading is done and represented solely by one’s SOILcoin addresses it really depends on how much caution the individual user takes. The level of anonymity one prefers when using SOIL-ex depends entirely on how the user approaches the coupling of one’s identity to their SOILcoin address. Simply, SOIL-ex not require any identity documents or individual user accounts to execute the smart contracts, all you need is a running SOILcoin client with RPC enabled and a SOILcoin wallet with funds within it.
+
+Will there be a daily withdrawal limit?
+
+No. As your assets belong to you, you are free to do with it as you please. In fact, owing to the way the smart contracts are designed,  it is impossible for us to set any withdrawal limit as we never have that type of control.
+
+How are you funding this?
+
+SOIL-ex has been funded solely by time and effort on the developer’s part. We have no corporate or private sponsorships. If, however, you would like to contribute to the ongoing development of SOIL-ex, you can send a donation to the appropriate SOIL-dev account at 0xe46731382FbC47621A6C480d4b6118026bBBCb3A.
+
+Will you bring on more developers/team members as SOIL-ex grows?
+
+SOIL-ex is an open source project to which anyone can contribute. We welcome community involvement with open arms, and will be available to answer questions, as best as we can. You can message me, abvhiael, on bitcointalk.com or ask a question on the SOILcoin forum (https://bitcointalk.org/index.php?topic=1176709.0) or email me directly at abvhiael@live.ca
+
+When will you release the code?
+
+It is already released in our GitHub repository, https://github.com/abvhiael/etherex
+
+How can I help make sure this exchange succeeds?
+
+Contribute and spread the word! Build tokens using the etx.se subcurrency contract and register it on SOIL-ex. Buy DEV tokens to support the development team. Buy SEEDs to contribute to the “carbon footprint offset” program for SOILcoin.
+
+How do I connect to SOIL-ex?
+
+Open your SOILcoin client with a .bat file with the parameters:
+
+gsoil --rpc --rpcport "8545" --rpccorsdomain http://104.156.251.192:7105 --unlock 0 console
+
+Then, set your browser to http://104.156.251.192:7105 to launch the web based user interface.
+
+Why SOILcoin?
+
+A decentralized exchange needs an advanced cryptocurrency network to even exist and, most importantly, to be secure. SOILcoin is that network. SOIL-ex will make full use of the smart contracts deployed onto the SOILcoin network to run the exchange, and those contracts, and any future contracts built to add to SOIL-ex’s functionality, will always be open source. Everyone is highly encouraged to take a look at the inner workings of the exchange, verify it is safe and that it does what it is advertised to do. This fits squarely into the missin statement for SOILcoin, where we hold unfettered transparency as a cornerstone of our currency. This ideal extends to the exchange ensuring that nothing is hidden from the user, and that their assets are always protected.
